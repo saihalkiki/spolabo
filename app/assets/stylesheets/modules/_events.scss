@@ -1,3 +1,63 @@
 * {
   box-sizing: border-box;
 }
+
+.Header {
+  height: 60px;
+  width: 100vw;
+  outline: 1px solid gray;
+  background-color: rgb(221, 221, 221);
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.Icons{
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  justify-content: right;
+  align-items: center;
+  height: 60px;
+  text-align: center;
+  &__icon{
+    &--user{
+      font-size: 26px;
+    }
+    &--plus{
+      font-size: 26px;
+    }
+  }
+  &__text{
+    font-size: 10px;
+  }
+}
+.Logo {
+  line-height: 60px;
+  font-size: large;
+  font-weight: bold;
+}
+.Main{
+  width: 100%;
+  height: calc(100vh - 60px);
+  padding: 40px;
+}
+
+.EventTitle {
+  font-size: 20px;
+  width: 100%;
+  border-bottom: 1px solid;
+}
+
+.EventList {
+  margin-top: 15px;
+  display: grid;
+  grid-auto-rows: minmax(250px, auto);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+
+.Event {
+  background-color: gray;
+  max-width: 560px;
+  max-height: 360px;
+}
