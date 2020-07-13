@@ -2,19 +2,23 @@
   .Logo
     %h1 SpoLabo
   .Icons
-    -# - if user_signed_in?
-    .Icons__icon
-      .Icons__icon--user
-        = icon('fas', 'user')
-      .Icons__text
-        マイページ
-    .Icons__icon
-      .Icons__icon--plus
-        = icon('fas', 'plus')
-      .Icons__text
-        イベント作成
-    .Icons__logout
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
-    -# - else
-      ログイン
-      新規登録
+    - if user_signed_in?
+      .Icons__icon
+        .Icons__icon--user
+          = icon('fas', 'user')
+        .Icons__text
+          マイページ
+      .Icons__icon
+        .Icons__icon--plus
+          = icon('fas', 'plus')
+        .Icons__text
+          イベント作成
+      .Icons__post
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      .Icons__icon
+        
+      .Icons__icon
+        
+      .Icons__post
+        = link_to "ログイン", new_user_session_path

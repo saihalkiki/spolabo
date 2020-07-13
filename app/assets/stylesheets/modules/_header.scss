@@ -1,0 +1,48 @@
+.Header {
+  height: 60px;
+  width: 100vw;
+  outline: 1px solid gray;
+  background-color: rgb(221, 221, 221);
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.Logo {
+  line-height: 60px;
+  font-size: large;
+  font-weight: bold;
+}
+.Icons{
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  justify-content: right;
+  align-items: center;
+  height: 60px;
+  text-align: center;
+  &__icon{
+    &--user{
+      font-size: 26px;
+    }
+    &--plus{
+      font-size: 26px;
+    }
+  }
+  &__text{
+    font-size: 10px;
+  }
+  &__post {
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: black;
+      display: block;
+      // background-color: #a2f5bf;
+      padding: 8px 20px;
+    }
+    font-size: 14px;
+    border: 2px solid black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 3px;
+  }
+}
