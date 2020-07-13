@@ -1,13 +1,23 @@
 .Notification {
+  padding: 0 40px; 
+  margin-top: 40px;
   .notice {
-    background-color: #38AEF0;
-    color: #fff;
-    text-align: center;
+    // background-color: #38AEF0;
+    // color: #fff;
+    text-align: left;
+    color: #111111;
+    background-color: #dfecf0;
+    padding: 15px;
+    border: 1px solid #38AEF0;
+    border-radius: 4px;
   }
 
   .alert {
-    background-color: #F35500;
-    color: #fff;
-    text-align: center;
+    text-align: left;
+    color: #111111;
+    background-color: #f2dede;
+    padding: 15px;
+    border: 1px solid #d57370;
+    border-radius: 4px;
   }
 }
