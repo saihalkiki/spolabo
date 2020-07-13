@@ -14,7 +14,7 @@
       .Icons__text
         イベント作成
     .Icons__logout
-      ログアウト
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
     -# - else
       ログイン
       新規登録
