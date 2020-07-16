@@ -1,6 +1,7 @@
 %header.Header
   .Logo
-    %h1 SpoLabo
+    =link_to root_path do
+      SpoLabo
   .Icons
     - if user_signed_in?
       .Icons__icon
@@ -9,10 +10,11 @@
         .Icons__text
           マイページ
       .Icons__icon
-        .Icons__icon--plus
-          = icon('fas', 'plus')
-        .Icons__text
-          イベント作成
+        = link_to new_event_path do
+          .Icons__icon--plus
+            = icon('fas', 'plus')
+          .Icons__text
+            イベント作成
       .Icons__post
         = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else

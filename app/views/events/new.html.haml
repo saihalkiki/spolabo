@@ -1,0 +1,29 @@
+.SettingEventForm
+  = form_with model: @event, local: true do |f|
+    %h3 イベント作成
+    - if @event.errors.any?
+      .SettingEventForm__errors
+        %p= "#{@event.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @event.errors.full_messages.each do |message|
+            %li= message
+    .SettingEventForm__field
+      = f.label :name, "イベント名"
+      = f.text_field :name
+    .SettingEventForm__field
+      = f.label :place, "開催場所"
+      = f.text_field :place
+    .SettingEventForm__field
+      = f.label :start_time
+      = f.datetime_select :start_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10
+    .SettingEventForm__field
+      = f.label :end_time
+      = f.datetime_select :end_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10
+    .SettingEventForm__field
+      = f.label :content, "イベントの詳細"
+      = f.text_area :content, row: 10
+    .SettingEventForm__field
+      = f.submit "イベントを作成"
+
+
+
