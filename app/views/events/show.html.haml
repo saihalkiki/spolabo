@@ -1,0 +1,18 @@
+%h1
+  = @event.name
+%div
+  主催者：
+  = @event.owner.name
+%div
+  開催時間：
+  = "#{@event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{@event.start_time.strftime("%Y年%m月%d日 %H時%M分")}" 
+%div
+  開催場所：
+  = @event.place
+%div
+  イベント詳細：
+  = @event.content
+%div
+  - if user_signed_in? && current_user.id == @event.owner_id
+    = link_to 'イベントを編集する', edit_event_path(@event), class: "btn btn-outline-dark"
+    = link_to 'イベントを削除する', event_path(@event),data: { confirm: "本当に削除しますか？" }, method: :delete, class: "btn btn-outline-dark"

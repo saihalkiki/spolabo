@@ -1,12 +1,35 @@
 .Main
   .EventTitle
+
     イベント一覧
   .EventList
+    .card.shadow
+      %img.card-img-top{src: "https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg", alt: "..."}
+      .card-body
+        %h5.card-title
+          Card title
+        %p.card-text
+          Some quick example text to build on the card title and make up the bulk of the card's content.
+        %a.btn.btn-primary{href: "#"}
+          Go somewhere
+    .card.shadow
+      .avatar.mx-auto.white
+        %img.rounded-circle.img-responsive{src: "https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg", alt: "woman avatar"}
+      .card-body
+        %h4.card-title.font-weight-bold
+          Martha Smith
+        %hr
+        %p
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos,
+          adipisci
+
     .Event
       .Event__user
         %p 主催者
       .Event__title
         %p イベントタイトル
+      .Event__datetime
+        %p 開催時間 
       .Event__place
         %p 場所
       .Event__level
@@ -16,109 +39,22 @@
       .Event__price
         %p 一人あたりの参加費
       .Event__count
-      %p \○人/○人
-    .Event
-      .Event__user
-        %p 主催者
-      .Event__title
-        %p イベントタイトル
-      .Event__place
-        %p 場所
-      .Event__level
-        %p プレイレベル
-      .Event__sport
-        %p スポーツの種類
-      .Event__price
-        %p 一人あたりの参加費
-      .Event__count
-      %p \○人/○人
-    .Event
-      .Event__user
-        %p 主催者
-      .Event__title
-        %p イベントタイトル
-      .Event__place
-        %p 場所
-      .Event__level
-        %p プレイレベル
-      .Event__sport
-        %p スポーツの種類
-      .Event__price
-        %p 一人あたりの参加費
-      .Event__count
-      %p \○人/○人
-    .Event
-      .Event__user
-        %p 主催者
-      .Event__title
-        %p イベントタイトル
-      .Event__place
-        %p 場所
-      .Event__level
-        %p プレイレベル
-      .Event__sport
-        %p スポーツの種類
-      .Event__price
-        %p 一人あたりの参加費
-      .Event__count
-      %p \○人/○人
-    .Event
-      .Event__user
-        %p 主催者
-      .Event__title
-        %p イベントタイトル
-      .Event__place
-        %p 場所
-      .Event__level
-        %p プレイレベル
-      .Event__sport
-        %p スポーツの種類
-      .Event__price
-        %p 一人あたりの参加費
-      .Event__count
-      %p \○人/○人
-    .Event
-      .Event__user
-        %p 主催者
-      .Event__title
-        %p イベントタイトル
-      .Event__place
-        %p 場所
-      .Event__level
-        %p プレイレベル
-      .Event__sport
-        %p スポーツの種類
-      .Event__price
-        %p 一人あたりの参加費
-      .Event__count
-      %p \○人/○人
-    .Event
-      .Event__user
-        %p 主催者
-      .Event__title
-        %p イベントタイトル
-      .Event__place
-        %p 場所
-      .Event__level
-        %p プレイレベル
-      .Event__sport
-        %p スポーツの種類
-      .Event__price
-        %p 一人あたりの参加費
-      .Event__count
-      %p \○人/○人
-    .Event
-      .Event__user
-        %p 主催者
-      .Event__title
-        %p イベントタイトル
-      .Event__place
-        %p 場所
-      .Event__level
-        %p プレイレベル
-      .Event__sport
-        %p スポーツの種類
-      .Event__price
-        %p 一人あたりの参加費
-      .Event__count
-      %p \○人/○人
+        %p \○人/○人
+    
+    - @events.each do |event|
+      - if current_user.name != event.owner.name
+        .Event
+          .Event__user
+            = event.owner.name
+          .Event__title
+            = event.name
+          .Event__datetime
+            = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
+          .Event__place
+            = event.place
+          .Event__content
+            = event.content
+          .Event__level
+          .Event__sport
+          .Event__price
+          .Event__count
