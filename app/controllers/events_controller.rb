@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @events = Event.includes(:owner).where('start_time > ?', Time.zone.now).order(:start_time)
   end
@@ -37,6 +39,11 @@ class EventsController < ApplicationController
     @event = current_user.events.find(params[:id])
     @event.destroy
     redirect_to root_path, notice: '削除しました'
+  end
+
+  def search
+
+    @events = Event.search(params[:keyword])
   end
 
   private
