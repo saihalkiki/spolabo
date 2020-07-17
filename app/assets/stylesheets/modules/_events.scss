@@ -8,6 +8,14 @@
   padding: 40px;
 }
 
+.EventSearch{
+  width: 100%;
+  padding: 10px;
+  label {
+    margin-bottom: 0px;
+  }
+}
+
 .EventTitle {
   font-size: 20px;
   width: 100%;
@@ -24,7 +32,17 @@
 }
 
 .Event {
-  background-color: gray;
   max-width: 560px;
-  max-height: 360px;
+  &__user{
+    text-align: center;
+  }
+}
+.avatar {
+  height: 100px;
+  margin-top: 20px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 50%;
+  img {
+    height: 100%;
+  }
 }

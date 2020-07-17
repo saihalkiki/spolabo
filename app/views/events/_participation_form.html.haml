@@ -1,0 +1,27 @@
+- if !user_signed_in?
+  = link_to "参加する", new_user_session_path, class: "btn btn-primary"
+- else
+  - unless event.participated_by?(current_user)
+    %button.btn.btn-primary{"data-target" => "#staticBackdrop", "data-toggle" => "modal", :type => "button"}
+      参加する
+    #staticBackdrop.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "staticBackdropLabel", "data-backdrop" => "static", "data-keyboard" => "false", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+        .modal-content
+          .modal-header
+            %h5#staticBackdropLabel.modal-title
+              = event.name
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+          .modal-body
+            参加イベント内容の詳細表示
+          .modal-footer
+            %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} 閉じる
+            = form_with model: event.participations.build, url: event_participations_path(event),remote: true do |f|
+              = hidden_field_tag :event_id, event.id
+              = f.submit "参加を確定する", class: "btn btn-primary"
+  - else
+    = form_with model: participation = event.participations.find_by(user_id: current_user.id), url: "/events/#{event.id}/participations/#{participation.id}", method: :delete, local: true do |f|
+      = f.submit "参加キャンセルする", class: "btn btn-secondary", data: { confirm: '本当にキャンセルしますか？' }
+
+
+
