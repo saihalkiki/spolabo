@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :events, class_name: 'Event', foreign_key: :owner_id
   has_many :participations
   validates :name, presence: true, uniqueness: true
+  mount_uploader :image, ImageUploader
 
 end

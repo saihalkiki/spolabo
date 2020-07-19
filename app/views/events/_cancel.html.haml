@@ -1,0 +1,2 @@
+= form_with model: participation = event.participations.find_by(user_id: current_user.id), url: "/events/#{event.id}/participations/#{participation.id}", method: :delete, remote: true do |f|
+  = f.submit "参加キャンセルする", class: "btn btn-secondary", data: { confirm: '本当にキャンセルしますか？' }

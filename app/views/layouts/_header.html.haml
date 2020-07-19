@@ -1,14 +1,15 @@
 %header.Header
   .Logo
     =link_to root_path do
-      SpoLabo
+      イベサク
   .Icons
     - if user_signed_in?
       .Icons__icon
-        .Icons__icon--user
-          = icon('fas', 'user')
-        .Icons__text
-          マイページ
+        = link_to edit_user_registration_path(current_user) do
+          .Icons__icon--user
+            = icon('fas', 'user')
+          .Icons__text
+            マイページ編集
       .Icons__icon
         = link_to new_event_path do
           .Icons__icon--plus

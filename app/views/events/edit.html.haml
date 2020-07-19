@@ -9,18 +9,18 @@
             %li= message
     .SettingEventForm__field
       = f.label :name, "イベント名"
-      = f.text_field :name
+      = f.text_field :name, class: "form-control"
     .SettingEventForm__field
       = f.label :place, "開催場所"
-      = f.text_field :place
+      = f.text_field :place, class: "form-control"
     .SettingEventForm__field
       = f.label :start_time
-      = f.datetime_select :start_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10
+      = f.datetime_select :start_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10, class: "form-control"
     .SettingEventForm__field
       = f.label :end_time
-      = f.datetime_select :end_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10
+      = f.datetime_select :end_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10, class: "form-control"
     .SettingEventForm__field
       = f.label :content, "イベントの詳細"
-      = f.text_area :content, row: 10
+      = f.text_area :content, row: 10, class: "form-control"
     .SettingEventForm__field
-      = f.submit "更新"
+      = f.submit "更新", class: "btn btn-primary text-white"

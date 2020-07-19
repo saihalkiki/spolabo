@@ -2,6 +2,7 @@ class ParticipationsController < ApplicationController
   def create
     participation = current_user.participations.build(event_id: params[:event_id])
     participation.save
+    
     # respond_to do |format|
     #   format.html { redirect_to root_path }
     #   format.js
