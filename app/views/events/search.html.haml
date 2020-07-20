@@ -7,43 +7,48 @@
             = icon('fas', 'search')
             = f.submit "検索", class: "sr-only"
       = f.text_field :keyword, placeholder: "イベントを検索する", class: "form-control rounded-right"
-  .EventTitle
-    イベント一覧
-  .EventList 
-    - @events.each do |event|
-      - if !user_signed_in?
-        .Event.card.shadow
-          .avatar.mx-auto.white
-            %img.rounded-circle.img-responsive{src: "https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg", alt: "woman avatar"}
-          .card-body
-            %h4.card-title.font-weight-bold
-              Martha Smith
-            .Event__user
-              = event.owner.name
-            .Event__title
-              = event.name
-            .Event__datetime
-              = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
-            .Event__place
-              = event.place
-            .Event__content
-              = event.content
-            
-      - elsif current_user.name != event.owner.name
-        .Event.card.shadow
-          .avatar.mx-auto.white
-            %img.rounded-circle.img-responsive{src: "https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg", alt: "woman avatar"}
-          .card-body
-            %h4.Event__user.card-title.font-weight-bold
-              = event.owner.name
-            %hr
-            .Event__title
-              = event.name
-            .Event__datetime
-              = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
-            .Event__place
-              = event.place
-            .Event__content
-              = event.content
-            .Event__btn
-              = render partial: 'participation_form', locals: { event: event }
+  .EventIndex
+    .EventTitle
+      イベント一覧
+    .EventList 
+      - @events.each do |event|
+        - if !user_signed_in?
+          .Event.card.shadow
+            .avatar.mx-auto.white
+              - if event.owner.image?
+                = image_tag event.owner.image.to_s, class: "rounded-circle img-responsive"
+              - else
+                = image_tag 'no_image.jpg', class: "rounded-circle img-responsive"
+            .card-body
+              %h4.Event__user.card-title.font-weight-bold
+                = event.owner.name
+              .Event__title
+                = event.name
+              .Event__datetime
+                = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
+              .Event__place
+                = event.place
+              %hr
+              .Event__btn
+                = render partial: 'participation_form', locals: { event: event }
+
+        - elsif current_user.name != event.owner.name
+          .Event.card.shadow
+            .avatar.mx-auto.white
+              - if event.owner.image?
+                = image_tag event.owner.image.to_s, class: "rounded-circle img-responsive"
+              - else
+                = image_tag 'no_image.jpg', class: "rounded-circle img-responsive"
+            .card-body
+              %h4.Event__user.card-title.font-weight-bold
+                = event.owner.name
+              %hr
+              .Event__title
+                = event.name
+              .Event__datetime
+                = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
+              .Event__place
+                = event.place
+              %hr
+              .Event__btn
+                = render partial: 'participation_form', locals: { event: event }

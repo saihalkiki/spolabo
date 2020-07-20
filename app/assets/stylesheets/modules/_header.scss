@@ -20,6 +20,9 @@
   height: 60px;
   text-align: center;
   &__icon{
+    a {
+      color: black;
+    }
     &--user{
       font-size: 26px;
     }
