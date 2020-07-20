@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: spolabo_production
-  username: spolabo
-  password: <%= ENV['SPOLABO_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
