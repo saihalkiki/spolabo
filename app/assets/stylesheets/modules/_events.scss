@@ -20,19 +20,19 @@
   margin-top: 40px;
 }
 
-.EventTitle {
-  font-size: 20px;
-  width: 100%;
-  border-bottom: 1px solid;
-}
-
-.EventList {
+.EventLists{
   margin-top: 15px;
   display: grid;
   grid-auto-rows: minmax(250px, auto);
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-row-gap: 20px;
   grid-column-gap: 20px;
+}
+
+.EventTitle {
+  font-size: 20px;
+  width: 100%;
+  border-bottom: 1px solid;
 }
 
 .Event {

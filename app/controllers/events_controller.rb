@@ -2,7 +2,11 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = Event.includes(:owner).where('start_time > ?', Time.zone.now).order(:start_time)
+    if user_signed_in?
+      @events = Event.includes(:owner).where.not('owner_id = ?', current_user).where('start_time > ?', Time.zone.now).order(:start_time)
+    else
+      @events = Event.includes(:owner).where('start_time > ?', Time.zone.now).order(:start_time)
+    end
   end
 
   def show
