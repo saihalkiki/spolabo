@@ -22,6 +22,9 @@
     .SettingEventForm__field
       = f.label :content, "イベントの詳細"
       = f.text_area :content, row: 10, class: "form-control"
+      = f.range_field :w1, :min=>0, :max=>10, :class=>"slide", :id=>"slider1", style: "width: 400px;"
+      = f.select :sex, {'男性': 1, '女性': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true }
+      -# = f.collection_select
     .SettingEventForm__field
       = f.submit "イベントを作成", class: "btn btn-primary text-white"
 

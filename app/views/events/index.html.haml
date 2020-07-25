@@ -22,12 +22,14 @@
             .card-body
               %h4.Event__user.card-title.font-weight-bold
                 = event.owner.name
-              .Event__title
-                = event.name
-              .Event__datetime
-                = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
-              .Event__place
-                = event.place
+              %hr
+              .Event__content
+                .Event__title
+                  = event.name
+                .Event__datetime
+                  = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
+                .Event__place
+                  = event.place
               %hr
               .Event__btn
                 = render partial: 'participation_form', locals: { event: event }
@@ -43,12 +45,13 @@
               %h4.Event__user.card-title.font-weight-bold
                 = event.owner.name
               %hr
-              .Event__title
-                = event.name
-              .Event__datetime
-                = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
-              .Event__place
-                = event.place
+              .Event__content
+                .Event__title
+                  = event.name
+                .Event__datetime
+                  = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
+                .Event__place
+                  = event.place
               %hr
               .Event__btn
                 = render partial: 'participation_form', locals: { event: event }
