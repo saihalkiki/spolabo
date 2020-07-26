@@ -11,5 +11,4 @@
     .EventTitle
       イベント一覧
     .EventLists
-      - @events.each do |event|
-        = render partial: "event_form", locals: { event: event }
+      = render @events
