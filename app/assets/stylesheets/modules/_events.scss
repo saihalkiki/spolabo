@@ -20,13 +20,7 @@
   margin-top: 40px;
 }
 
-.EventTitle {
-  font-size: 20px;
-  width: 100%;
-  border-bottom: 1px solid;
-}
-
-.EventList {
+.EventLists{
   margin-top: 15px;
   display: grid;
   grid-auto-rows: minmax(250px, auto);
@@ -35,11 +29,23 @@
   grid-column-gap: 20px;
 }
 
+.EventTitle {
+  font-size: 20px;
+  width: 100%;
+  border-bottom: 1px solid;
+}
+
 .Event {
   max-width: 560px;
   &__user{
     text-align: center;
   }
+  &__datetime {
+    font-size: 14px;
+  }
+  &__content {
+    min-height: 120px;
+}
 }
 .avatar {
   height: 100px;

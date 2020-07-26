@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   has_many :participations
+  has_many :events, through: :participations
   belongs_to :owner, class_name: 'User'
 
   include ActiveModel::Validations
