@@ -9,6 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("src/image_preview.js")
+require("src/icon_hover.js")
+require("src/level_preview.js")
 require("bootstrap");
 import '../src/application.scss'
 // Uncomment to copy all static images under ../images to the output folder and reference
