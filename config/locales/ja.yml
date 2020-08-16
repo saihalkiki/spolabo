@@ -145,6 +145,10 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+      event:
+        create: イベントを作成する
+        submit: 保存する
+        update: イベントを更新する
   number:
     currency:
       format:
