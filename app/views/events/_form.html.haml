@@ -1,6 +1,6 @@
 .SettingEventForm
   = form_with model: @event, local: true do |f|
-    %h3 イベント作成
+    %h3.SettingEventForm__group イベント作成
     = render 'shared/error_messages', locals: { event: @event }
     .SettingEventForm__group
       .SettingEventForm__label
@@ -27,11 +27,13 @@
         = f.label :content, "イベントの詳細"
       .SettingEventForm__field
         = f.text_area :content, row: 10, class: "form-control"
-    .SettingEventForm__group
-      .SettingEventForm__label
-        = f.label :level, "参加者の推奨レベル"
-      .SettingEventForm__field
-        = f.range_field :level, :min=>1, :max=>5, :class=>"slide", :id=>"slider1", style: "width: 400px;"
-        %span#score 3
-    .SettingEventForm__group
+    %button#levelBtn.btn.btn-primary 推奨レベルを追加
+    #levelRange
+      .SettingEventForm__group.SettingEventForm__btn.displayNone
+        .SettingEventForm__label
+          = f.label :level, "参加者の推奨レベル："
+          %span#score 中級
+        .SettingEventForm__field
+          = f.range_field :level, min: 0, max: 4, class: "form-control-range", id: "slider", style: "width: 500px;", disabled: true
+    .SettingEventForm__group.SettingEventForm__btn
       = f.submit class: "btn btn-primary text-white"
