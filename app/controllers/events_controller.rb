@@ -19,7 +19,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    binding.pry
     if @event.save
       redirect_to root_path, notice: 'イベントを作成しました'
     else
