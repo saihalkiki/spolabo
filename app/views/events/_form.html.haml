@@ -1,0 +1,39 @@
+.SettingEventForm
+  = form_with model: @event, local: true do |f|
+    %h3.SettingEventForm__group イベント作成
+    = render 'shared/error_messages', locals: { event: @event }
+    .SettingEventForm__group
+      .SettingEventForm__label
+        = f.label :name, "イベント名"
+      .SettingEventForm__field
+        = f.text_field :name, class: "form-control"
+    .SettingEventForm__group
+      .SettingEventForm__label
+        = f.label :place, "開催場所"
+      .SettingEventForm__field
+        = f.text_field :place, class: "form-control"
+    .SettingEventForm__group
+      .SettingEventForm__label
+        = f.label :start_time
+      .SettingEventForm__field
+        = f.datetime_select :start_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10, class: "form-control"
+    .SettingEventForm__group
+      .SettingEventForm__label
+        = f.label :end_time
+      .SettingEventForm__field
+        = f.datetime_select :end_time, use_month_numbers: true, start_year: Time.zone.now.year, end_year: Time.zone.now.year + 1, minute_step: 10, class: "form-control"
+    .SettingEventForm__group
+      .SettingEventForm__label
+        = f.label :content, "イベントの詳細"
+      .SettingEventForm__field
+        = f.text_area :content, row: 10, class: "form-control"
+    %button#levelBtn.btn.btn-primary 推奨レベルを追加
+    #levelRange
+      .SettingEventForm__group.SettingEventForm__btn.displayNone
+        .SettingEventForm__label
+          = f.label :level, "参加者の推奨レベル："
+          %span#score 中級
+        .SettingEventForm__field
+          = f.range_field :level, min: 0, max: 4, class: "form-control-range", id: "slider", style: "width: 500px;", disabled: true
+    .SettingEventForm__group.SettingEventForm__btn
+      = f.submit class: "btn btn-primary text-white"

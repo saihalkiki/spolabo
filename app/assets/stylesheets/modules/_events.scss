@@ -59,4 +59,13 @@
     object-fit: cover;
   }
 }
+.SettingEventForm{
+  max-width: 800px;
+  &__group {
+    margin: 20px 0;
+  }
+}
 
+#event_content{
+  min-height: 200px;
+}

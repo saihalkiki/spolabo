@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
   
-  has_many :events, class_name: 'Event', foreign_key: :owner_id
-  has_many :participations
+  has_many :events, class_name: 'Event', foreign_key: :owner_id, dependent: :destroy
+  has_many :participations, dependent: :destroy
   has_many :users, through: :participations
   validates :name, presence: true, uniqueness: true
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader, dependent: :destroy
 
 end
