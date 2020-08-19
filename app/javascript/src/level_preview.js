@@ -20,12 +20,9 @@ $(document).on('turbolinks:load', function () {
   })
 
   /* 変更中（ドラッグ中） */
+  let levelArray = ["初級","初中級","中級","中上級","上級"]
   $('input[type=range]').on('input', function () {
-    $('#score').html($(this).val());
-  });
-  
-  /* 変更後 */
-  $('input[type=range]').change(function () {
-    $('#score').html($(this).val());
+    let rangeVal = $(this).val()
+    $('#score').html(levelArray[rangeVal]);
   });
 })
