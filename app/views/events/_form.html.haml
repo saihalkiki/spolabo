@@ -32,6 +32,6 @@
         = f.label :level, "参加者の推奨レベル"
       .SettingEventForm__field
         = f.range_field :level, :min=>1, :max=>5, :class=>"slide", :id=>"slider1", style: "width: 400px;"
-        %span#score
+        %span#score 3
     .SettingEventForm__group
       = f.submit class: "btn btn-primary text-white"
