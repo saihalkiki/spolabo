@@ -5,11 +5,11 @@
   .Icons
     - if user_signed_in?
       .Icons__icon
-        = link_to edit_user_registration_path(current_user) do
+        = link_to user_path(current_user) do
           .Icons__icon--user
             = icon('fas', 'user')
           .Icons__text
-            マイページ編集
+            マイページ
       .Icons__icon
         = link_to new_event_path do
           .Icons__icon--plus
