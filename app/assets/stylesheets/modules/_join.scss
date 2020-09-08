@@ -1,0 +1,49 @@
+.MypageContent{
+  display: flex;
+  #MypageLeftNav{
+    width: 250px;
+  }
+  #MypageRightContent{
+    width: calc(100vw - 250px);
+  }
+  .item{
+    a{
+      color: #777;
+    }
+    .current{
+      color: black;
+      font-weight: bold;
+    }
+  }
+  .eventTab{
+    display: table;
+    width: 100%;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    li:first-of-type {
+      border-right: 1px solid #ccc;
+    }
+    li {
+      display: table-cell;
+      width: 50%;
+      text-align: center;
+      font-size: 15px;
+      border-bottom: 1px solid #ccc;
+      background: #eee;
+      a {
+        display: block;
+        color: #666;
+        padding: 16px;
+      }
+    }
+    .current {
+      background: #fff;
+      border-bottom: none;
+      a{
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+}

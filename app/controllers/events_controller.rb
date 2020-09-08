@@ -46,8 +46,7 @@ class EventsController < ApplicationController
   end
 
   def search
-
-    @events = Event.search(params[:keyword])
+    @events = Event.search(params[:keyword]).where.not('owner_id = ?', current_user)
   end
 
   private

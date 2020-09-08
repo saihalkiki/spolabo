@@ -5,7 +5,7 @@
   .Icons
     - if user_signed_in?
       .Icons__icon
-        = link_to user_path(current_user) do
+        = link_to join_user_path(current_user) do
           .Icons__icon--user
             = icon('fas', 'user')
           .Icons__text
@@ -16,6 +16,12 @@
             = icon('fas', 'plus')
           .Icons__text
             イベント作成
+      .Icons__icon
+        = link_to "#" do
+          .Icons__icon--plus
+            = icon('fas', 'calendar-alt')
+          .Icons__text
+            イベント管理
       .Icons__post
         = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
@@ -23,5 +29,7 @@
         
       .Icons__icon
         
+      .Icons__icon
+
       .Icons__post
         = link_to "ログイン", new_user_session_path

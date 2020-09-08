@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   has_many :participations
-  has_many :events, through: :participations
+  has_many :join_users, through: :participations, source: :user
   belongs_to :owner, class_name: 'User'
 
   include ActiveModel::Validations
@@ -15,11 +15,5 @@ class Event < ApplicationRecord
   def participated_by?(user)
       participations.where(user_id: user.id).exists?
   end
-
-  # 検索
-  def self.search(input)
-      return Event.where('start_time > ?', Time.zone.now).order(:start_time) if input.blank?
-      Event.where('name LIKE(?)', "%#{input}%").where('start_time > ?', Time.zone.now).order(:start_time)
-  end 
 
 end
