@@ -9,6 +9,7 @@ class ParticipationsController < ApplicationController
     # end
     redirect_to root_path
   end
+  
   def destroy
     participation = Participation.find_by(event_id: params[:event_id], user_id: current_user.id)
     participation.destroy

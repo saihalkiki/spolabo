@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   has_many :events, class_name: 'Event', foreign_key: :owner_id, dependent: :destroy
   has_many :participations, dependent: :destroy
-  has_many :users, through: :participations
+  has_many :join_events, through: :participations, source: :event
   validates :name, presence: true, uniqueness: true
   mount_uploader :image, ImageUploader, dependent: :destroy
 
