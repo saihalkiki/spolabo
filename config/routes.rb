@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "events#index"
 
-  resources :users, only: :show do
+  resources :users, only: :new do
     member do
       get :join
     end
