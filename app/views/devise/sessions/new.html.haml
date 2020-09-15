@@ -16,3 +16,5 @@
     .actions.mt-3
       = f.submit "ログイン", class: "btn btn-primary text-white"
   = render "devise/shared/links"
+  = link_to 'Facebookで登録/ログイン', user_facebook_omniauth_authorize_path, method: :post
+  = link_to 'Googleで登録/ログイン', user_google_oauth2_omniauth_authorize_path, method: :post

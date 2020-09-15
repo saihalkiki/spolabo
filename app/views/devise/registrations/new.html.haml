@@ -10,17 +10,22 @@
       = f.label :email
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
-    .field.mt-3
-      = f.label :password
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} characters minimum)
-      %br/
-      = f.password_field :password, autocomplete: "new-password", class: 'form-control'
-    .field.mt-3
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+    - if @sns_id.present?
+      = hidden_field_tag :sns_auth, true
+    - else
+      .field.mt-3
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+      .field.mt-3
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
     .actions.mt-3
       = f.submit "登録", class: "btn btn-primary"
   = render "devise/shared/links"
+  = link_to 'Facebookで登録/ログイン', user_facebook_omniauth_authorize_path, method: :post
+  = link_to 'Googleで登録/ログイン', user_google_oauth2_omniauth_authorize_path, method: :post
