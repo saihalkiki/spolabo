@@ -1,20 +1,50 @@
-.container
-  %h2 ログインページ
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field.mt-3
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
-    .field.mt-3
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "current-password", class: "form-control"
-    - if devise_mapping.rememberable?
-      .field.mt-3
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions.mt-3
-      = f.submit "ログイン", class: "btn btn-primary text-white"
-  = render "devise/shared/links"
-  = link_to 'Facebookで登録/ログイン', user_facebook_omniauth_authorize_path, method: :post
-  = link_to 'Googleで登録/ログイン', user_google_oauth2_omniauth_authorize_path, method: :post
+.Form
+  .Form__title
+    %h5 ログイン・新規登録
+  .Form--displyFlex
+    .Form__session
+      %h6 すでに会員のお客様
+      .Form__sessionIn
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+          .field.mt-2
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "current-password", class: "form-control"
+          - if devise_mapping.rememberable?
+            .field.mt-2
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions.mt-2
+            = f.submit "ログイン", class: "btn btn-primary text-white btn-block"
+      %h6.Form__session--borderTop.mt-4 はじめてのお客様
+      .Form__registration
+        = link_to "アカウント登録へ", new_registration_path(resource_name), class: 'btn btn-success text-white btn-block'
+      
+    .Form__omniauth
+      %h6 ソーシャルメディアで登録 / ログイン
+      .Form__omniauthIn
+        .Form__btn
+          = link_to user_facebook_omniauth_authorize_path, method: :post do
+            .Form__btn--facebook.Form__btn--borderRadius
+              %i.fab.fa-facebook
+              Facebookで登録 / ログイン
+        .Form__btn.mt-5
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+            .Form__btn--google.Form__btn--borderRadius
+              =image_tag "image.png", alt: "google_icon", id: "pic1", class: "image", size: "18x18"
+              Googleで登録 / ログイン
+        .Form__btn.mt-5
+          = link_to "#", method: :post do
+            .Form__btn--twitter.Form__btn--borderRadius
+              =image_tag "twitter_Icon.svg", alt: "twitter_icon", id: "pic1", class: "image", size: "18x18"
+              Twitterで登録 / ログイン
+        .Form__btn.mt-5
+          = link_to "#", method: :post do
+            .Form__btn--github.Form__btn--borderRadius
+              %i.fab.fa-github
+              Githubで登録 / ログイン
+-# = render "devise/shared/links"

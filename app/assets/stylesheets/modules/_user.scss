@@ -7,3 +7,97 @@
 .hidden{
   display: none;
 }
+
+.Form{
+  &__title{
+    border-bottom: 1px solid #ccc;
+    margin: 12px 0 32px;
+  } 
+  &--displyFlex{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__session{
+    min-width: 340px;
+    width: 49%;
+    max-width: 500px;
+    height: 480px;
+    border: 1px solid #ddd;
+    h6{
+      font-size: 18px;
+      padding: 15px 20px;
+      background: #f5f5f5;
+    }
+    &--borderTop{
+      border-top: 1px solid #ddd;
+    }
+  }
+  &__sessionIn{
+    padding: 10px 36px 0 40px;
+  }
+  &__registration{
+    padding: 20px 36px 0 40px;
+    &--border{
+      border: solid 1px #ddd;
+      padding: 30px;
+    }
+    &--backgroundGray{
+      background-color: #f5f5f5;
+      padding: 10px 40px 40px;
+    }
+    .btn{
+      width: 250px;
+    }
+  }
+  &__omniauth{
+    min-width: 340px;
+    width: 49%;
+    max-width: 500px;
+    margin-left: auto;
+    height: 480px;
+    border: 1px solid #ddd;
+    h6{
+      font-size: 18px;
+      padding: 15px 20px;
+      background: #f5f5f5;
+    }
+  }
+  &__omniauthIn{
+    padding: 20px 36px 0 40px;
+    .Form__btn{
+      text-align: center;
+      height: 50px;
+      width: 100%;
+      line-height: 50px;
+      &--borderRadius{
+        border-radius: 0.25rem;
+      }
+      &--facebook{
+        margin-top: 16px;
+        background-color: #385185;
+        color: #fff;
+        border: none;
+      }
+      &--google{
+        background-color: #FFFFFF;
+        color: black;
+        border: 1px solid gray;
+        .image{
+          margin-bottom: 2px;
+        }
+      }
+      &--twitter{
+        margin-top: 16px;
+        background-color: #1da1f2;
+        color: #fff;
+        border: none;
+      }
+      &--github{
+        margin-top: 16px;
+        background-color: #24292e;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+}
