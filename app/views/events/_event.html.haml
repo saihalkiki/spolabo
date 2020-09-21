@@ -17,6 +17,9 @@
         = event.place
       .Event__level
         = event.level
+      .Event__tag
+        - event.tags.each do |tag|
+          = tag
     %hr
     .Event__btn
       = render partial: 'participation_form', locals: { event: event }
