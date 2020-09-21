@@ -11,4 +11,7 @@
     .EventTitle
       イベント一覧
     .EventLists
-      = render @events
+      - if @events.empty?
+        投稿されたイベントはありません。
+      - else
+        = render @events

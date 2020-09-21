@@ -11,6 +11,10 @@ class Event < ApplicationRecord
   validates :end_time, presence: true
   validates_with EventValidator
 
+  acts_as_taggable #追加
+  # acts_as_taggable_on :tags　と同じ意味のエイリアス
+  # tags のなかにIDやら名前などが入る。イメージ的には親情報。
+
   # current_userがすでに参加しているかどうかのメソッド
   def participated_by?(user)
       participations.where(user_id: user.id).exists?
