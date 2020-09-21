@@ -15,6 +15,11 @@
         = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
       .Event__place
         = event.place
+      .Event__level
+        = event.level
+      .Event__tag
+        - event.tags.each do |tag|
+          = tag
     %hr
     .Event__btn
       = render partial: 'participation_form', locals: { event: event }

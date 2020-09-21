@@ -1,9 +1,9 @@
 .Header {
-  height: 60px;
+  min-height: 60px;
   width: 100vw;
   outline: 1px solid gray;
   background-color: rgb(221, 221, 221);
-  padding: 0px 40px;
+  padding: 0px 11% ;
   display: grid;
   grid-template-columns: 1fr 2fr;
 }

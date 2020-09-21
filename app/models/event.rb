@@ -11,6 +11,12 @@ class Event < ApplicationRecord
   validates :end_time, presence: true
   validates_with EventValidator
 
+  acts_as_taggable #追加
+  # acts_as_taggable_on :tags　と同じ意味のエイリアス
+  # tags のなかにIDやら名前などが入る。イメージ的には親情報。
+
+  enum level: { "初級": 0, "初中級": 1, "中級": 2, "中上級": 3, "上級": 4 }
+
   # current_userがすでに参加しているかどうかのメソッド
   def participated_by?(user)
       participations.where(user_id: user.id).exists?
