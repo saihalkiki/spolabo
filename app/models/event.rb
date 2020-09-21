@@ -17,7 +17,6 @@ class Event < ApplicationRecord
 
   enum level: { "初級": 0, "初中級": 1, "中級": 2, "中上級": 3, "上級": 4 }
 
-
   # current_userがすでに参加しているかどうかのメソッド
   def participated_by?(user)
       participations.where(user_id: user.id).exists?
