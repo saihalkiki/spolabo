@@ -5,28 +5,28 @@
     .Form__registration--backgroundGray
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
-        .field.mt-3
+        .Form__field.mt-3
           = f.label :name, "ユーザー名"
           %br/
           = f.text_field :name, autofocus: true, autocomplete: "username", class: 'form-control'
-        .field.mt-3
+        .Form__field.mt-3
           = f.label :email
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
         - if @sns_id.present?
           = hidden_field_tag :sns_auth, true
         - else
-          .field.mt-3
+          .Form__field.mt-3
             = f.label :password
             - if @minimum_password_length
               %em
                 (#{@minimum_password_length}文字以上)
             %br/
             = f.password_field :password, autocomplete: "new-password", class: 'form-control'
-          .field.mt-3
+          .Form__field.mt-3
             = f.label :password_confirmation
             %br/
             = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
-        .actions.mt-4
+        .Form__field.Form__field--width250.mt-4
           = f.submit "登録", class: "btn btn-primary"
-      = render "devise/shared/links"
+      -# = render "devise/shared/links"
