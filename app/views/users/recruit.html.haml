@@ -1,0 +1,64 @@
+.MypageContent
+  #MypageLeftNav
+    %ul.MypageSubmenu
+      %li.Heading
+        %h6.font-weight-bold マイページ
+      %li.SubHeading.NavBorderTop
+        %h6 イベント管理
+      %li.item
+        = link_to "参加状況", "#", class: "current"
+      %li.item.current
+        = link_to "募集状況", "#"
+      %li.item
+        = link_to "下書き", "#"
+      %li.item
+        = link_to "登録開催エリア", "#"
+      %li.SubHeading.NavBorderTop
+        %h6 会員登録情報
+      %li.item
+        = link_to "お客様情報", "#"
+      %li.item
+        = link_to "クレジットカード", "#"
+      %li.item
+        = link_to "振込口座", "#"
+      %li.SubHeading.NavBorderTop
+        %h6 お気に入りユーザー
+      %li.item
+        = link_to "フォロー", "#"
+      %li.item
+        = link_to "フォロワー", "#"
+  #MypageRightContent
+    %h4 ○○様のマイページ
+    %ul.eventTab
+      %li#eventJoin.current
+        = link_to "参加", "#"
+      %li#eventRecruit
+        = link_to "募集", "#"
+    .EventIndex
+      - if @events_join.empty?
+        参加イベント履歴はありません。
+      - else
+        .EventTitle
+          イベント一覧
+        .EventLists
+          - @events_join.each do |event|
+            .Event.card.shadow
+              .avatar.mx-auto.white
+                - if event.owner.image?
+                  = image_tag event.owner.image.to_s, class: "rounded-circle img-responsive"
+                - else
+                  = image_tag 'no_image.jpg', class: "rounded-circle img-responsive"
+              .card-body
+                %h4.Event__user.card-title.font-weight-bold
+                  = event.owner.name
+                %hr
+                .Event__content
+                  .Event__title
+                    = event.name
+                  .Event__datetime
+                    = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
+                  .Event__place
+                    = event.place
+                %hr
+                .Event__btn
+                  -# = render partial: '/events/participation_form', locals: { event: event }
