@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: :new do
     member do
       get :join
+      get :recruit
     end
   end
 
