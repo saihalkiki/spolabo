@@ -3,9 +3,9 @@
 - else
   #follow_form
   - unless event.participated_by?(current_user)
-    = render partial: 'participate', locals: { event: event }
+    = render partial: 'events/participate', locals: { event: event }
   - else
-    = render partial: 'cancel', locals: { event: event }
+    = render partial: 'events/cancel', locals: { event: event }
 
 
 

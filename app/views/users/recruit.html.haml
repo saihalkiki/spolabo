@@ -35,13 +35,13 @@
       %li#eventRecruit
         = link_to "募集", "#"
     .EventIndex
-      - if @events_join.empty?
+      - if @events_recruit.empty?
         参加イベント履歴はありません。
       - else
         .EventTitle
           イベント一覧
         .EventLists
-          - @events_join.each do |event|
+          - @events_recruit.each do |event|
             .Event.card.shadow
               .avatar.mx-auto.white
                 - if event.owner.image?
@@ -59,6 +59,11 @@
                     = "#{event.start_time.strftime("%Y年%m月%d日 %H時%M分")} 〜 #{event.start_time.strftime("%Y年%m月%d日 %H時%M分")}"
                   .Event__place
                     = event.place
+                  .Event__level
+                    = event.level
+                  .Event__tag
+                    - event.tags.each do |tag|
+                      = tag
                 %hr
                 .Event__btn
-                  -# = render partial: '/events/participation_form', locals: { event: event }
+                  = render partial: '/events/participation_form', locals: { event: event }
