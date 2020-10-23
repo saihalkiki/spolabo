@@ -1,7 +1,9 @@
 class Event < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :participations
   has_many :join_users, through: :participations, source: :user
   belongs_to :owner, class_name: 'User'
+  belongs_to_active_hash :level
 
   include ActiveModel::Validations
   validates :name, presence: true, length: { maximum: 50 }
