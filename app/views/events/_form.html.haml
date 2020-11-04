@@ -36,9 +36,9 @@
     #levelRange
       .SettingEventForm__group.SettingEventForm__btn.displayNone
         .SettingEventForm__label
-          = f.label :level, "参加者の推奨レベル："
+          = f.label :level_id, "参加者の推奨レベル："
           %span#score 中級
         .SettingEventForm__field
-          = f.range_field :level, min: 0, max: 4, class: "form-control-range", id: "slider", style: "width: 500px;", disabled: true
+          = f.range_field :level_id, min: 0, max: 4, class: "form-control-range", id: "slider", style: "width: 500px;", disabled: true
     .SettingEventForm__group.SettingEventForm__btn
       = f.submit class: "btn btn-primary text-white"
