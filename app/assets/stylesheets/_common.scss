@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  letter-spacing: 1px;
 }
 .displayNone {
   display: none;
@@ -8,7 +9,8 @@
   font-size: 16px;
 }
 .item{
-  font-size: 14px;
+  font-size: 13px;
+  margin-top: 12px;
 }
 .NavBorderTop{
   border-top: 1px solid #e6e6e6;
