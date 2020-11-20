@@ -1,35 +1,5 @@
 .MypageContent
-  #MypageLeftNav
-    %ul.MypageSubmenu
-      %li.Heading
-        %h6.font-weight-bold.line-height-28px マイページ
-      .SubHeading.NavBorderTop
-        %li
-          %h6 イベント管理
-        %li.item.current
-          = link_to "参加状況", "#", class: "current"
-        %li.item
-          = link_to "募集状況", "#"
-        %li.item
-          = link_to "下書き", "#"
-        %li.item
-          = link_to "登録開催エリア", "#"
-      .SubHeading.NavBorderTop
-        %li
-          %h6 会員登録情報
-        %li.item
-          = link_to "お客様情報", "#"
-        %li.item
-          = link_to "クレジットカード", "#"
-        %li.item
-          = link_to "振込口座", "#"
-      .SubHeading.NavBorderTop
-        %li
-          %h6 お気に入りユーザー
-        %li.item
-          = link_to "フォロー", "#"
-        %li.item
-          = link_to "フォロワー", "#"
+  = render 'users/mypage_left_nav'
   #MypageRightContent
     %h4 ○○様のマイページ
     %ul.eventTab
