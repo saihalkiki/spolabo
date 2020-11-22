@@ -2,9 +2,19 @@
   display: flex;
   #MypageLeftNav{
     width: 250px;
+    margin-right: 20px;
+    .Heading {
+      margin-bottom: 20px;
+    }
+    .SubHeading {
+      padding: 20px 0;
+    }
   }
   #MypageRightContent{
     width: calc(100vw - 250px);
+    h4 {
+      margin-bottom: 20px;
+    }
   }
   .item{
     a{
@@ -46,4 +56,8 @@
       }
     }
   }
+}
+
+.line-height-28px {
+  line-height: 28px;
 }
