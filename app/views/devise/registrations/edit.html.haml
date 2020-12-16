@@ -6,14 +6,14 @@
   .circle-image
     %img#image_img_prev.hidden{"src" => "#"}
     -if current_user.persisted? && current_user.image?
-      = image_tag current_user.image.to_s, class: "image_present_img"
       %label
-        = f.check_box :remove_image
-        画像を削除
+        = image_tag current_user.image.to_s, class: "image_present_img"
+        = f.file_field :image, id: "post_img", class: "displayNone"
     - else
-      = image_tag 'no_image.jpg', class: "image_present_img"
-      = f.hidden_field :image_cache
-    = f.file_field :image, id: "post_img"
+      %label
+        = image_tag 'no_image.jpg', class: "image_present_img"
+        = f.hidden_field :image_cache
+        = f.file_field :image, id: "post_img", class: "displayNone"
 
   .field
     = f.label :name, "ユーザー名"
