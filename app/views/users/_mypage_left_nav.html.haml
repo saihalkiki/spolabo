@@ -17,10 +17,10 @@
       %li
         %h6 会員登録情報
       %li.item
-        - if user_signed_in? && current_user.id == params[:id]
-          = link_to "お客様情報", "#"
+        - if user_signed_in? && current_user.id == params[:id].to_i
+          = link_to "お客様情報", edit_user_registration_path(params[:id].to_i)
         - else
-          = link_to "お客様情報", "#"
+          = link_to "お客様情報", user_path(params[:id].to_i)
       -# %li.item
       -#   = link_to "クレジットカード", "#"
       -# %li.item
