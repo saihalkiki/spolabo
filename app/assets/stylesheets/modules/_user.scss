@@ -1,9 +1,43 @@
+.UserContainer {
+  width: 100%;
+  display: grid;
+  grid-template: 
+    "... ..... ... ..... .... .... ..." 30px
+    "... image ... ..... .... .... ..." 18px
+    "... image ... title .... btn  ..."
+    "... image ... ..... .... .... ..." 12px
+    "... image ... text  text text ..." 1fr
+    "... image ... ..... .... .... ..." 8px
+    "... image ... url   .... .... ..."
+    "... ..... ... ..... .... .... ..." 48px
+    / auto 104px 28px auto 1fr auto;
+    ;
+}
+
 .circle-image img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  grid-area: image;
 }
+
+.aaa{
+  grid-area: title;
+}
+
+.aaa{
+  grid-area: text;
+}
+
+.aaa{
+  grid-area: url;
+}
+
+.aaa{
+  grid-area: btn;
+}
+
 .hidden{
   display: none;
 }

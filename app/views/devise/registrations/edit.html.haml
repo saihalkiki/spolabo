@@ -2,52 +2,29 @@
   ユーザー編集
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
-  
-  .circle-image
-    %img#image_img_prev.hidden{"src" => "#"}
-    -if current_user.persisted? && current_user.image?
-      %label
-        = image_tag current_user.image.to_s, class: "image_present_img"
-        = f.file_field :image, id: "post_img", class: "displayNone"
-    - else
-      %label
-        = image_tag 'no_image.jpg', class: "image_present_img"
-        = f.hidden_field :image_cache
-        = f.file_field :image, id: "post_img", class: "displayNone"
-
-  .field
-    = f.label :name, "ユーザー名"
-    %br/
-    = f.text_field :name, autofocus: true, autocomplete: "username", class: 'form-control'
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
-    = f.submit "更新", class: "btn btn-primary text-white"
-  -# - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-  -#   %div
-  -#     Currently waiting confirmation for: #{resource.unconfirmed_email}
-  -# .field
-  -#   = f.label :password
-  -#   %i (leave blank if you don't want to change it)
-  -#   %br/
-  -#   = f.password_field :password, autocomplete: "new-password"
-  -#   - if @minimum_password_length
-  -#     %br/
-  -#     %em
-  -#       = @minimum_password_length
-  -#       characters minimum
-  -# .field
-  -#   = f.label :password_confirmation
-  -#   %br/
-  -#   = f.password_field :password_confirmation, autocomplete: "new-password"
-  -# .field
-  -#   = f.label :current_password
-  -#   %i (we need your current password to confirm your changes)
-  -#   %br/
-  -#   = f.password_field :current_password, autocomplete: "current-password"
-  -# .actions
--# %h3 Cancel my account
--# %p
--#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  / ここにdivをつけてimgとinputを並行に並べる
+  .UserContainer
+    .circle-image
+      -if current_user.persisted? && current_user.image?
+        %label
+          %img#image_img_prev.hidden{"src" => "#"}
+          = image_tag current_user.image.to_s, class: "image_present_img"
+          = f.file_field :image, id: "post_img", class: "displayNone"
+      - else
+        %label
+          %img#image_img_prev.hidden{"src" => "#"}
+          = image_tag 'no_image.jpg', class: "image_present_img"
+          = f.hidden_field :image_cache
+          = f.file_field :image, id: "post_img", class: "displayNone"
+    /ユーザー名とメールアドレスは縦並び
+    .Field
+      .NameField
+        = f.label :name, "ユーザー名"
+        %br/
+        = f.text_field :name, autofocus: true, autocomplete: "username", class: 'form-control'
+      .EmailField
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+  = f.submit "更新", class: "btn btn-primary text-white"
 = link_to "戻る", :back, class: "btn btn-secondary text-white"
