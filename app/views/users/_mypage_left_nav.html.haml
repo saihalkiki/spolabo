@@ -6,26 +6,29 @@
       %li
         %h6 イベント管理
       %li.item.current
-        = link_to "参加状況", "#", class: "current"
+        = link_to "参加状況", join_user_path(current_user)
       %li.item
         = link_to "募集状況", "#"
-      %li.item
-        = link_to "下書き", "#"
-      %li.item
-        = link_to "登録開催エリア", "#"
+      -# %li.item
+      -#   = link_to "下書き", "#"
+      -# %li.item
+      -#   = link_to "登録開催エリア", "#"
     .SubHeading.NavBorderTop
       %li
         %h6 会員登録情報
       %li.item
-        = link_to "お客様情報", "#"
-      %li.item
-        = link_to "クレジットカード", "#"
-      %li.item
-        = link_to "振込口座", "#"
+        - if user_signed_in? && current_user.id == params[:id].to_i
+          = link_to "お客様情報", edit_user_registration_path(params[:id].to_i)
+        - else
+          = link_to "お客様情報", user_path(params[:id].to_i)
+      -# %li.item
+      -#   = link_to "クレジットカード", "#"
+      -# %li.item
+      -#   = link_to "振込口座", "#"
     .SubHeading.NavBorderTop
       %li
         %h6 お気に入りユーザー
-      %li.item
-        = link_to "フォロー", "#"
-      %li.item
-        = link_to "フォロワー", "#"
+      -# %li.item
+      -#   = link_to "フォロー", "#"
+      -# %li.item
+      -#   = link_to "フォロワー", "#"

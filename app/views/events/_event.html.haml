@@ -16,7 +16,10 @@
       .Event__place
         = event.place
       .Event__level
-        = event.level.name
+        - if event.level_id.present?
+          = event.level.name
+        - else
+          レベル指定なし
       .Event__tag
         - event.tags.each do |tag|
           = tag

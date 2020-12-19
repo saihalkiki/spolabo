@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root "events#index"
 
-  resources :users, only: :new do
+  resources :users, only: [:new, :show, :edit, :update] do
     member do
       get :join
       get :recruit

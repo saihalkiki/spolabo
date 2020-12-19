@@ -1,9 +1,55 @@
-.circle-image img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
+.UserContainer {
+  width: 100%;
+  display: grid;
+  grid-template: 
+    "... .......... ... ........ ..... ..." 30px
+    "... image      ... title    title ..." auto
+    "... image      ... ........ ..... ..." 12px
+    "... image      ... email    email ..." 1fr
+    "... image      ... ........ ..... ..." 8px
+    "... image      ... ........ ..... ..." auto
+    "... .......... ... ........ ..... ..." 8px
+    "... update_btn ... back_btn ..... ..." auto
+    "... .......... ... ........ ..... ..." 30px /
+    auto 105px 10px 105px 1fr auto ;
 }
+
+.circle-image{
+  grid-area: image;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.NameField{
+  grid-area: title;
+  display: flex;
+  label {
+    line-height: 38px;
+    margin-right: 10px;
+  }
+}
+
+.EmailField{
+  grid-area: email;
+  display: flex;
+  label {
+    line-height: 38px;
+    margin-right: 10px;
+  }
+}
+
+.UpdateBtn{
+  grid-area: update_btn;
+}
+
+.BackBtn{
+  grid-area: back_btn;
+}
+
 .hidden{
   display: none;
 }
