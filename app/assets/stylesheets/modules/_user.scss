@@ -2,40 +2,52 @@
   width: 100%;
   display: grid;
   grid-template: 
-    "... ..... ... ..... .... .... ..." 30px
-    "... image ... ..... .... .... ..." 18px
-    "... image ... title .... btn  ..."
-    "... image ... ..... .... .... ..." 12px
-    "... image ... text  text text ..." 1fr
-    "... image ... ..... .... .... ..." 8px
-    "... image ... url   .... .... ..."
-    "... ..... ... ..... .... .... ..." 48px
-    / auto 104px 28px auto 1fr auto;
-    ;
+    "... .......... ... ........ ..... ..." 30px
+    "... image      ... title    title ..." auto
+    "... image      ... ........ ..... ..." 12px
+    "... image      ... email    email ..." 1fr
+    "... image      ... ........ ..... ..." 8px
+    "... image      ... ........ ..... ..." auto
+    "... .......... ... ........ ..... ..." 8px
+    "... update_btn ... back_btn ..... ..." auto
+    "... .......... ... ........ ..... ..." 30px /
+    auto 105px 10px 105px 1fr auto ;
 }
 
-.circle-image img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
+.circle-image{
   grid-area: image;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
 
-.aaa{
+.NameField{
   grid-area: title;
+  display: flex;
+  label {
+    line-height: 38px;
+    margin-right: 10px;
+  }
 }
 
-.aaa{
-  grid-area: text;
+.EmailField{
+  grid-area: email;
+  display: flex;
+  label {
+    line-height: 38px;
+    margin-right: 10px;
+  }
 }
 
-.aaa{
-  grid-area: url;
+.UpdateBtn{
+  grid-area: update_btn;
 }
 
-.aaa{
-  grid-area: btn;
+.BackBtn{
+  grid-area: back_btn;
 }
 
 .hidden{
