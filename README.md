@@ -23,6 +23,7 @@
 
 ## 本番環境
 * 本番環境のIPアドレス
+https://evesaku.herokuapp.com/
 
 ## 使用技術
 * Haml
